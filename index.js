@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 const _ = require('lodash');
 const HmacSha256 = require('crypto-js/hmac-sha256');
 
-const WEBHOOK_SIGNING_SECRET = 'bb0rlibruotl2ag9u29g2veub02rs5rt';
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -29,7 +27,7 @@ app.post('/mux/webhook-handler', (req, res) => {
   const payload = `${sigObj.t}.${body}`;
 
   const actual = sigObj.v1;
-  const expected = HmacSha256(payload, WEBHOOK_SIGNING_SECRET).toString();
+  const expected = HmacSha256(payload, process.env.WEBHOOK_SIGNING_SECRET).toString();
 
   const result = {
     muxSigHeader,

@@ -10,7 +10,9 @@ To access the Webhooks settings in Mux Dashboard, go to https://dashboard.mux.co
 
 ## Deployment
 
-The easiest way to validate is to deploy this onto [Repl.it](https://repl.it) and set the webhook url in Mux Dashboard.  Be sure to update the secret.
+The easiest way to validate is to deploy this onto [Repl.it](https://repl.it) and set the webhook url in Mux Dashboard.
+
+After creating the Webhook, access the signing secret by clicking the "Show Signing Secret" button for the newly created Webhook on https://dashboard.mux.com/settings/webhooks.  Copy the signing secret and paste it into `.env` file (based on teh `.env_sample`).
 
 ## How to use
 
